@@ -228,6 +228,7 @@ int main(int argc, char *argv[]) {
     }
   }
 
+  const auto start{std::chrono::steady_clock::now()};
   for (size_t step = 0; step < nbstep; step++) {
     if (step % printevery == 0)
       dump_state(s);
@@ -251,6 +252,11 @@ int main(int argc, char *argv[]) {
     //      update_position(s, i, dt);
     //    }
   }
+
+  const auto finish{std::chrono::steady_clock::now()};
+  const std::chrono::duration<double> elapsed_seconds{finish - start};
+  std::cerr << "Time to crawl: " << elapsed_seconds.count()
+            << "Number of threads: " << argv[5] << "s\n";
 
   // dump_state(s);
 
