@@ -15,3 +15,6 @@ random.out: nbody
 	date
 	./nbody 1000 1 10000 100 > random.out # maybe 5 minutes
 	date
+
+clean: 
+	rm nbody

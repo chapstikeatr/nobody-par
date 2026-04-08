@@ -1,12 +1,12 @@
-Time to crawl: 403.139Number of threads: 4s
-Time to crawl: 919.104Number of threads: 8s
-Time to crawl: 1445Number of threads: 12s
-Time to crawl: 1.3483Number of threads: 4s
-Time to crawl: 2.40038Number of threads: 8s
-Time to crawl: 3.44781Number of threads: 12s
-Time to crawl: 51.56Number of threads: 4s
-Time to crawl: 52.5915Number of threads: 8s
-Time to crawl: 53.691Number of threads: 12s
-Time to crawl: 3.46871Number of threads: 1 (seq)s
-Time to crawl: 0.708414Number of threads: 1 (seq)s
-Time to crawl: 70.4257Number of threads: 1 (seq)s
+Time to crawl: 403.139s Number of threads: 4
+Time to crawl: 919.104s Number of threads: 8
+Time to crawl: 1445s Number of threads: 12
+Time to crawl: 1.3483s Number of threads: 4
+Time to crawl: 2.40038s Number of threads: 8
+Time to crawl: 3.44781s Number of threads: 12
+Time to crawl: 51.56s Number of threads: 4
+Time to crawl: 52.5915s Number of threads: 8
+Time to crawl: 53.691s Number of threads: 12
+Time to crawl: 3.46871s Number of threads: 1 (seq)
+Time to crawl: 0.708414s Number of threads: 1 (seq)
+Time to crawl: 70.4257s Number of threads: 1 (seq)

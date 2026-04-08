@@ -1,5 +1,0 @@
-Time to crawl: 403.764Number of threads: 4s
-Time to crawl: 919.814Number of threads: 8s
-srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
-slurmstepd: error: *** JOB 17263 ON gal-c1 CANCELLED AT 2026-04-07T21:02:16 ***
-slurmstepd: error: *** STEP 17263.2 ON gal-c1 CANCELLED AT 2026-04-07T21:02:16 ***
