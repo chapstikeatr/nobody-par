@@ -4,6 +4,7 @@
 #include <fstream>
 #include <iostream>
 #include <random>
+#include <chrono>
 
 double G = 6.674 * std::pow(10, -11);
 // double G = 1;
@@ -234,12 +235,33 @@ int main(int argc, char *argv[]) {
       dump_state(s);
 
     reset_force(s);
-    omp.parfor(0, s.nbpart, 1, [&](size_t i) {
-      for (size_t j = 0; j < s.nbpart; ++j)
-        if (i != j)
-          update_force(s, i, j);
+        omp.parfor(0, s.nbpart, 1, [&](size_t i) {
+      double fix = 0.0, fiy = 0.0, fiz = 0.0;
+
+      for (size_t j = 0; j < s.nbpart; ++j) {
+        if (i == j)
+          continue;
+
+        double dx = s.x[j] - s.x[i];
+        double dy = s.y[j] - s.y[i];
+        double dz = s.z[j] - s.z[i];
+
+        double dist_sq = dx * dx + dy * dy + dz * dz + 1e-9;
+        double inv_dist = 1.0 / std::sqrt(dist_sq);
+        double inv_dist3 = inv_dist * inv_dist * inv_dist;
+
+        double coeff = G * s.mass[i] * s.mass[j] * inv_dist3;
+
+        fix += coeff * dx;
+        fiy += coeff * dy;
+        fiz += coeff * dz;
+      }
+
+      s.fx[i] = fix;
+      s.fy[i] = fiy;
+      s.fz[i] = fiz;
     });
-    //    for (size_t i = 0; i < s.nbpart; ++i)
+//    for (size_t i = 0; i < s.nbpart; ++i)
     //      for (size_t j = 0; j < s.nbpart; ++j)
     //        if (i != j)
     //          update_force(s, i, j);

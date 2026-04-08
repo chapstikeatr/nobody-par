@@ -1,17 +1,16 @@
-CXXFLAGS=-O3
+CXX = g++
+CXXFLAGS = -O2 -fopenmp
 
-nbody: nbody.cpp
-	g++ -O3 nbody.cpp -o nbody
+TARGET = nbody
+SRC = nbody.cpp
 
-solar.out: nbody
-	date
-	./nbody planet 200 5000000 10000 > solar.out # maybe a minutes
-	date
+all: $(TARGET)
 
-solar.pdf: solar.out
-	python3 plot.py solar.out solar.pdf 1000 
+$(TARGET): $(SRC)
+		$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
 
-random.out: nbody
-	date
-	./nbody 1000 1 10000 100 > random.out # maybe 5 minutes
-	date
+run:
+	./$(TARGET) 100 1 1000 10 4
+
+clean:
+	rm -f $(TARGET)
